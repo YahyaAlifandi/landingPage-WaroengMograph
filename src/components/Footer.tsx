@@ -47,7 +47,7 @@ const FooterSection = () => {
           <motion.div variants={itemVariants} className="space-y-4">
             <div className="flex items-center space-x-3">
               <div className="w-15 h-15 -my-5 flex items-center justify-center">
-                <img className="filter brightness-0 invert" src={`/public/image/warmog_logo.png`} alt="" />
+                <img src="/image/warmog_logo.png" className="filter brightness-0 invert" alt="" />
               </div>
               <h3 className="text-xl font-bold text-white">Waroeng Mograph</h3>
             </div>

@@ -196,7 +196,7 @@ export default function NavbarComponent() {
               className="flex items-center space-x-2 text-green-500"
             >
               <div className="w-15 h-15 -my-5 flex items-center justify-center">
-                <img src={`/public/image/warmog_logo.png`} alt="" />
+                <img src="/image/warmog_logo.png" alt="" />
               </div>
               <span className="text-xl sm:text-2xl font-bold tracking-tight">
                 Waroeng Mograph
