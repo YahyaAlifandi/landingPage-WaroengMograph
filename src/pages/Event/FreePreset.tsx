@@ -191,7 +191,7 @@ export default function FreePreset() {
         <div className="bg-white flex items-center justify-between gap-4 border border-gray-200 rounded-xl p-3 sm:p-4 mb-5">
           {/* Tombol Kembali */}
           <button
-            onClick={() => window.history.back()}
+            onClick={() => window.location.href = "/"}
             className="flex items-center gap-2 text-gray-600 hover:text-gray-800 active:ring-2 active:ring-offset-2 active:ring-green-300 rounded-lg p-2 duration-200"
           >
             <FiArrowLeft className="text-lg" />

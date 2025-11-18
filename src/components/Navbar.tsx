@@ -195,8 +195,8 @@ export default function NavbarComponent() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex items-center space-x-2 text-green-500"
             >
-              <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-green-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">WM</span>
+              <div className="w-15 h-15 -my-5 flex items-center justify-center">
+                <img src={`/public/image/warmog_logo.png`} alt="" />
               </div>
               <span className="text-xl sm:text-2xl font-bold tracking-tight">
                 Waroeng Mograph
