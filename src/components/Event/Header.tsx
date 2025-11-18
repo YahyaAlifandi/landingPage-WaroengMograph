@@ -14,7 +14,9 @@ export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  //@ts-ignore
   const [cartCount, setCartCount] = useState(3);
+  //@ts-ignore
   const [wishlistCount, setWishlistCount] = useState(7);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);

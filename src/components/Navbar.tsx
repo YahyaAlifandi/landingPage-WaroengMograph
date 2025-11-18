@@ -12,8 +12,6 @@ import {
   FaQuoteLeft,
   FaCalendarAlt,
   FaDownload,
-  FaVideo,
-  FaChalkboardTeacher,
   FaChevronDown,
 } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
@@ -61,6 +59,7 @@ export default function NavbarComponent() {
 
         for (const section of sections) {
           if (section.ref) {
+            //@ts-ignore
             const { offsetTop, offsetHeight } = section.ref;
             const distance = Math.abs(scrollPosition - offsetTop);
             

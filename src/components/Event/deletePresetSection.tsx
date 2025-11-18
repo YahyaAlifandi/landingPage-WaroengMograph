@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiTrash2, FiEdit2, FiDownload, FiInfo, FiX, FiCheck, FiPlus, FiSearch, FiFilter, FiGrid, FiList } from "react-icons/fi";
+import { FiTrash2, FiEdit2, FiInfo, FiX, FiCheck, FiSearch, FiGrid, FiList } from "react-icons/fi";
 
 interface Preset {
   id: number;

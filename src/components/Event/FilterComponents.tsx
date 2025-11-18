@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiSearch, FiRefreshCcw, FiCheck, FiX, FiFilter, FiX as FiClose } from 'react-icons/fi';
+import { FiSearch, FiRefreshCcw, FiCheck, FiFilter, FiX as FiClose } from 'react-icons/fi';
 
 interface FilterState {
   search: string;
@@ -283,7 +283,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFilterChange, categories })
                           className="absolute top-0 left-0 h-full bg-gradient-to-r from-green-300 to-green-500 rounded-full transition-all duration-200"
                           style={{ width: `${filters.size}%` }}
                         />
-                        {checkpoints.map((mb, index) => (
+                        {checkpoints.map((mb) => (
                           <div
                             key={mb}
                             className={`absolute top-1/2 transform -translate-y-1/2 w-1 h-3 rounded-full ${
@@ -485,7 +485,7 @@ const FilterPanel: React.FC<FilterPanelProps> = ({ onFilterChange, categories })
                 className="absolute top-0 left-0 h-full bg-gradient-to-r from-green-300 to-green-500 rounded-full transition-all duration-200"
                 style={{ width: `${filters.size}%` }}
               />
-              {checkpoints.map((mb, index) => (
+              {checkpoints.map((mb) => (
                 <div
                   key={mb}
                   className={`absolute top-1/2 transform -translate-y-1/2 w-1 h-3 rounded-full ${

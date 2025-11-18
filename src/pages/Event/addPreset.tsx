@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FaMagic, FaStar, FaPlus } from "react-icons/fa";
 import DeletePreset from "../../components/Event/deletePresetSection";
 
+//@ts-ignore
 interface Preset {
   id: number;
   title: string;
