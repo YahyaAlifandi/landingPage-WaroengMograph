@@ -10,7 +10,7 @@ export default function APp() {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/event/free-preset" element={<FreePreset />} />
-        {import.meta.env.VITE_DEVELOPMENT == "true" ? (
+        {import.meta.env.VITE_DEVELOPMENT === true ? (
           <Route path="/event/free-preset/add-preset" element={<TambahPreset />} />
         ) : <Route path="/development-mode" element={<DevModeScreen />} />}
       </Routes>
