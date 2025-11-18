@@ -50,59 +50,68 @@ export default function FreePreset() {
   useEffect(() => {
     const fetchPresets = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/presets`);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch presets: ${response.statusText}`);
-        }
-        const data = await response.json();
+        const isDev = String(import.meta.env.VITE_DEVELOPMENT) === "true";
+        const API_URL = import.meta.env.VITE_API_URL as string;
 
         let presets: Preset[] = [];
-        if (Array.isArray(data)) {
-          presets = data;
-        } else if (data && Array.isArray(data.presets)) {
-          presets = data.presets;
-        } else if (data && typeof data === "object") {
-          presets = [data];
+
+        if (isDev) {
+          // Development: ambil dari API
+          const response = await fetch(`${API_URL}/presets`);
+          if (!response.ok) throw new Error("Failed to fetch from API");
+          const data = await response.json();
+          presets = Array.isArray(data) ? data : data.presets || [];
         } else {
-          throw new Error(
-            "Data is not an array, does not contain a presets array, or is not a valid object"
-          );
+          // Production: ambil dari public/data/preset.json
+          const response = await fetch("/data/preset.json");
+          if (!response.ok) throw new Error("Failed to load local JSON");
+          const data = await response.json();
+          presets = Array.isArray(data) ? data : data.presets || [];
         }
 
-        const mappedCards: Card[] = presets.map((preset) => ({
-          id: preset.id,
-          title: preset.title,
-          description: preset.subtitle,
-          tags: [preset.kategori, preset.type, "Free"],
-          author: "User", // Adjust if author data is available
-          size: preset.size,
-          sizeInMB: convertSizeToMB(preset.size),
-          image: preset.img_url.startsWith("http")
-            ? preset.img_url
-            : `${import.meta.env.VITE_API_URL}${preset.img_url}`,
-          type: preset.type,
-          kategori: preset.kategori,
-          format: preset.format.toLowerCase(),
-          file_url: preset.file_url.startsWith("http")
-            ? preset.file_url
-            : `${import.meta.env.VITE_API_URL}${preset.file_url}`,
-          author_url: preset.author_url,
-        }));
+        if (presets.length === 0) {
+          setCards([]);
+          setOriginalCards([]);
+          setLoading(false);
+          return;
+        }
 
-        const uniqueCategories = [
-          ...new Set(presets.map((preset) => preset.kategori)),
-        ];
+        const mappedCards: Card[] = presets.map((preset) => {
+          // Path sudah benar: /image/xxx.jpg dan /file/xxx.jpg
+          // Baik dev maupun prod, Vite akan serve dari folder public
+          const imageUrl = preset.img_url.startsWith("http")
+            ? preset.img_url
+            : preset.img_url; // sudah lengkap: /image/...
+
+          const fileUrl = preset.file_url.startsWith("http")
+            ? preset.file_url
+            : preset.file_url; // sudah lengkap: /file/...
+
+          return {
+            id: preset.id,
+            title: preset.title,
+            description: preset.subtitle,
+            tags: [preset.kategori, preset.type, "Free"],
+            author: "User",
+            size: preset.size,
+            sizeInMB: convertSizeToMB(preset.size),
+            image: imageUrl,
+            type: preset.type,
+            kategori: preset.kategori,
+            format: preset.format.toLowerCase(),
+            file_url: fileUrl,
+            author_url: preset.author_url || "#",
+          };
+        });
+
+        const uniqueCategories = [...new Set(presets.map((p) => p.kategori))];
 
         setCards(mappedCards);
         setOriginalCards(mappedCards);
         setCategories(uniqueCategories);
         setLoading(false);
       } catch (err) {
-        const errorMessage =
-          err instanceof Error
-            ? err.message
-            : "An error occurred while fetching presets";
-        setError(errorMessage);
+        setError(err instanceof Error ? err.message : "Failed to load data");
         setLoading(false);
       }
     };
@@ -247,7 +256,12 @@ export default function FreePreset() {
                         alt={card.title}
                         className="w-full h-32 sm:h-40 object-cover transition-transform duration-500 hover:scale-105"
                         onError={(e) => {
-                          e.currentTarget.src = "/images/fallback.jpg";
+                          const img = e.currentTarget;
+                          // Cegah infinite loop
+                          if (!img.dataset.error) {
+                            img.dataset.error = "true";
+                            img.src = "/images/fallback.jpg"; // pastikan file ini ADA di public/images/
+                          }
                         }}
                       />
                       <span className="absolute top-1.5 right-1.5 bg-green-500 text-white text-[10px] sm:text-xs font-semibold px-1.5 sm:px-2 py-0.5 rounded-full">
