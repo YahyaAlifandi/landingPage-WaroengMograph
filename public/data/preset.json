@@ -10,5 +10,65 @@
     "img_url": "/image/preset-1763438949605.jpg",
     "file_url": "/file/preset-1763438949619.jpg",
     "author_url": "https://www.tiktok.com/@fannmotion?_r=1&_t=ZS-91RlNTFeVDL"
+  },
+  {
+    "id": 2,
+    "title": "Love Animation ",
+    "subtitle": "Simple love animation project",
+    "kategori": "Animation",
+    "size": "20kb",
+    "format": "MP4",
+    "type": "align",
+    "img_url": "/image/preset-1763721858341.png",
+    "file_url": "/file/preset-1763721858353.jpg",
+    "author_url": "https://tiktok.com/@azzxzym"
+  },
+  {
+    "id": 3,
+    "title": "Key Animation",
+    "subtitle": "Simple animation of a key logo animation",
+    "kategori": "Motion Graphic",
+    "size": "173kb",
+    "format": "MP4",
+    "type": "align",
+    "img_url": "/image/preset-1763722237541.png",
+    "file_url": "/file/preset-1763722237544.jpg",
+    "author_url": "https://tiktok.com/@azzxzym"
+  },
+  {
+    "id": 4,
+    "title": "Wink Animation Logo",
+    "subtitle": "Wink project logo animation ",
+    "kategori": "Motion Graphic",
+    "size": "598kb",
+    "format": "MP4",
+    "type": "align",
+    "img_url": "/image/preset-1763722455588.png",
+    "file_url": "/file/preset-1763722455595.jpg",
+    "author_url": "https://tiktok.com/@azzxzym"
+  },
+  {
+    "id": 5,
+    "title": "Wink Animation v2",
+    "subtitle": "Different wink animation with v1 version",
+    "kategori": "Motion Graphic",
+    "size": "65kb",
+    "format": "MP4",
+    "type": "align",
+    "img_url": "/image/preset-1763723183612.png",
+    "file_url": "/file/preset-1763723183613.jpg",
+    "author_url": "https://www.tiktok.com/@fyrmotionlogo"
+  },
+  {
+    "id": 6,
+    "title": "Spotify Motion Graphic Template ",
+    "subtitle": "Spotify motion graphic animation ",
+    "kategori": "Animation",
+    "size": "253kb",
+    "format": "MP4",
+    "type": "align",
+    "img_url": "/image/preset-1763723360324.png",
+    "file_url": "/file/preset-1763723360332.jpg",
+    "author_url": "tiktok.com/@n4nde_"
   }
 ]
